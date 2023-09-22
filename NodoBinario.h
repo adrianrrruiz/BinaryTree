@@ -24,7 +24,7 @@ class NodoBinario {
         void posOrden();
 };
 
-#include "NodoBinario.cpp"
+//#include "NodoBinario.cpp"
 
 
 #endif  // NODOBINARIO

@@ -59,6 +59,7 @@ bool NodoBinario<T>::esHoja()
 template <class T>
 int NodoBinario<T>::altura()
 {
+    NodoBinario<T>* nodo = this->raiz;
     int valt; //Valor altura
 
     if(nodo->esHoja()){

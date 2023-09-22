@@ -23,6 +23,7 @@ class ArbolBinarioOrd {
         void nivelOrden();
 };
 
-#include "ArbolBinarioOrd.cpp"
+
+//#include "ArbolBinarioOrd.cpp"
 
 #endif  // ARBOLBINARIOORD
