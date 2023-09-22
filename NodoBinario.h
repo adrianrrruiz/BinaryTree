@@ -19,6 +19,9 @@ class NodoBinario {
         void fijarHijoDer(NodoBinario<T>* der);
         bool esHoja();
         int altura();
+        void inOrden();
+        void preOrden();
+        void posOrden();
 };
 
 #include "NodoBinario.cpp"

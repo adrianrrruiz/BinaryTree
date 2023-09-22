@@ -15,6 +15,7 @@ class ArbolBinarioOrd {
         int tamano();
         bool insertar(T val);
         bool eliminar(T val);
+        NodoBinario<T> *encontrarSucesor(NodoBinario<T> *nodo);
         bool buscar(T val);
         void preOrden();
         void inOrden();
