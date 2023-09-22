@@ -1,22 +1,24 @@
 #include "ArbolBinarioOrd.h"
 # include <queue>
+#include <iostream>
+
 template <class T>
 ArbolBinarioOrd<T>::ArbolBinarioOrd(){
-    this->raiz = NULL;
+    this->raiz = nullptr;
 }
 
 template <class T>
 ArbolBinarioOrd<T>::~ArbolBinarioOrd(){
-    if(this->raiz != NULL){
+    if(this->raiz != nullptr){
         delete this->raiz;
-        this->raiz = NULL;
+        this->raiz = nullptr;
     }
 }
 
 template <class T>
 bool ArbolBinarioOrd<T>::esVacio()
 {
-    return this->raiz == NULL;
+    return this->raiz == nullptr;
 }
 
 template <class T>
@@ -53,7 +55,7 @@ bool ArbolBinarioOrd<T>::insertar(T val)
     bool insertado = false;
     bool duplicado = false;
 
-    while (nodo != NULL){
+    while (nodo != nullptr){
         padre = nodo;
         if(val<nodo->obtenerDato()){
             nodo = nodo->obtenerHijoIzq();
@@ -66,7 +68,7 @@ bool ArbolBinarioOrd<T>::insertar(T val)
     }
     if (!duplicado){
         NodoBinario<T>* nuevo = new NodoBinario<T>(val);
-        if (nuevo != NULL){
+        if (nuevo != nullptr){
             if (val<padre->obtenerDato())
                 padre->fijarHijoIzq(nuevo);
             else 
@@ -79,12 +81,12 @@ bool ArbolBinarioOrd<T>::insertar(T val)
 
 template <class T>
 bool ArbolBinarioOrd<T>::eliminar(T val) {
-    NodoBinario<T>* padre = NULL; // Nodo padre del nodo que vamos a eliminar
+    NodoBinario<T>* padre = nullptr; // Nodo padre del nodo que vamos a eliminar
     NodoBinario<T>* nodo = this->raiz;
     bool encontrado = false;
 
     // Buscar el nodo a eliminar y su padre
-    while (nodo != NULL) {
+    while (nodo != nullptr) {
         if (val == nodo->obtenerDato()) {
             encontrado = true;
             break; // Encontramos el nodo a eliminar
@@ -104,21 +106,21 @@ bool ArbolBinarioOrd<T>::eliminar(T val) {
 
     // Caso 1: Nodo hoja
     if (nodo->esHoja()) {
-        if (padre == NULL) {
+        if (padre == nullptr) {
             // El nodo raíz es el único nodo en el árbol
             delete this->raiz;
-            this->raiz = NULL;
+            this->raiz = nullptr;
         } else if (padre->obtenerHijoIzq() == nodo) {
-            padre->fijarHijoIzq(NULL);
+            padre->fijarHijoIzq(nullptr);
         } else {
-            padre->fijarHijoDer(NULL);
+            padre->fijarHijoDer(nullptr);
         }
         delete nodo;
     }
     // Caso 2: Nodo con un solo hijo
     else if (nodo->tieneUnHijo()) {
         NodoBinario<T>* hijo = (nodo->obtenerHijoIzq() != NULL) ? nodo->obtenerHijoIzq() : nodo->obtenerHijoDer();
-        if (padre == NULL) {
+        if (padre == nullptr) {
             // El nodo a eliminar es la raíz del árbol
             delete this->raiz;
             this->raiz = hijo;
@@ -141,7 +143,7 @@ bool ArbolBinarioOrd<T>::eliminar(T val) {
 
 template <class T>
 NodoBinario<T>* ArbolBinarioOrd<T>::encontrarSucesor(NodoBinario<T>* nodo) {
-    while (nodo->obtenerHijoIzq() != NULL) {
+    while (nodo->obtenerHijoIzq() != nullptr) {
         nodo = nodo->obtenerHijoIzq();
     }
     return nodo;
@@ -153,7 +155,7 @@ bool ArbolBinarioOrd<T>::buscar(T val)
 {
     NodoBinario<T>* nodo = this->raiz;
     bool encontrado=false;
-    while (nodo != NULL && !encontrado){
+    while (nodo != nullptr && !encontrado){
         if(val<nodo->obtenerDato()){
             nodo = nodo->obtenerHijoIzq();
         } else if (val > nodo->obtenerDato()){
@@ -197,9 +199,9 @@ void ArbolBinarioOrd<T>::nivelOrden()
             nodo = cola.front();
             cola.pop();
             std::cout << nodo->obtenerDato() << " ";
-            if (nodo->obtenerHijoIzq() != NULL)
+            if (nodo->obtenerHijoIzq() != nullptr)
                 cola.push(nodo->obtenerHijoIzq());
-            if (nodo->obtenerHijoDer() != NULL)
+            if (nodo->obtenerHijoDer() != nullptr)
                 cola.push(nodo->obtenerHijoDer());
         }
     }

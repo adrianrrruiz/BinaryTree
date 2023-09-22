@@ -1,4 +1,6 @@
 #include "NodoBinario.h"
+#include <iostream>
+
 
 template <class T>
 NodoBinario<T>::NodoBinario()
@@ -64,10 +66,10 @@ int NodoBinario<T>::altura()
     } else{
         int valt_izq = -1;
         int valt_der = -1;
-        if(this->hijoIzq != NULL){
+        if(this->hijoIzq != nullptr){
             valt_izq = (this->hijoIzq)->altura();
         }
-        if(this->hijoDer != NULL){
+        if(this->hijoDer != nullptr){
             valt_der = (this->hijoDer)->altura();
         }
         if(valt_izq > valt_der){
@@ -81,10 +83,10 @@ int NodoBinario<T>::altura()
 template <class T>
 void NodoBinario<T>::inOrden()
 {
-    if (this->hijoIzq != NULL)
+    if (this->hijoIzq != nullptr)
         (this->hijoIzq)->inOrden();
     std::cout << this->dato <<" ";
-    if (this->hijoDer != NULL)
+    if (this->hijoDer != nullptr)
         (this->hijoDer)->inOrden();
     
 }
@@ -92,17 +94,17 @@ template <class T>
 void NodoBinario<T>::preOrden()
 {
     std::cout << this->dato <<" ";
-    if (this->hijoIzq != NULL)
+    if (this->hijoIzq != nullptr)
         (this->hijoIzq)->preOrden();
-    if (this->hijoDer != NULL)
+    if (this->hijoDer != nullptr)
         (this->hijoDer)->preOrden();
 }
 template <class T>
 void NodoBinario<T>::posOrden()
 {
-    if (this->hijoIzq != NULL)
+    if (this->hijoIzq != nullptr)
         (this->hijoIzq)->posOrden();
-    if (this->hijoDer != NULL)
+    if (this->hijoDer != nullptr)
         (this->hijoDer)->posOrden();
     std::cout << this->dato <<" ";
     
