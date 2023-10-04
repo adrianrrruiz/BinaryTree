@@ -1,10 +1,13 @@
 #include <iostream>
+#include <map>
 #include "binary_tree/BinaryTree.hpp"
+#include "elfo/Elfo.hpp"
 
 int main()
 {
     int opcion, dato;
     BinaryTree<int> arbol = BinaryTree<int>();
+    map<string, BinaryTree<Elfo>> universoElfico;
 
     do{
         cout << "ARBOL BINARIO AVL\n";
