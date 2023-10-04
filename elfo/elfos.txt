@@ -1,0 +1,51 @@
+Juan
+Poder: Vision Nocturna
+Habilidades Especiales: Magia elemental, teletransportacion, vision aguda
+
+Karen
+Poder: Comunicacion con animales
+Habilidades Especiales: Camuflaje natural, comunicacion con la naturaleza
+
+Edgar
+Poder: Poderes psiquicos
+Habilidades Especiales: Magia musical
+
+Elara
+Poder: Control del viento
+Habilidades Especiales: Volar, control de tormentas, magia del viento
+
+Thalía
+Poder: Telepatía
+Habilidades Especiales: Lectura de mentes, proyección astral, comunicación telepática
+
+Arian
+Poder: Ilusionismo
+Habilidades Especiales: Creación de ilusiones, invisibilidad, alteración de la percepción
+
+Lirael
+Poder: Necromancia
+Habilidades Especiales: Invocación de espíritus, comunicación con los muertos, control de huesos
+
+Galadriel
+Poder: Clarividencia
+Habilidades Especiales: Visión del futuro, percepción de eventos distantes, profecía
+
+Finarfin
+Poder: Control de plantas
+Habilidades Especiales: Manipulación de la flora, crecimiento acelerado de plantas, sanación a través de plantas
+
+Eolande
+Poder: Criomancia
+Habilidades Especiales: Creación de estructuras de hielo, invocación de ventiscas, resistencia al frío
+
+Valandil
+Poder: Control de la luz
+Habilidades Especiales: Creación de barreras de luz, cegar a los enemigos, manipulación de la luz
+
+Thranduil
+Poder: Transformación en animal
+Habilidades Especiales: Cambio de forma en un animal, habilidades animales
+
+Elrond
+Poder: Curación
+Habilidades Especiales: Sanación avanzada, detener el envejecimiento, protección mágica

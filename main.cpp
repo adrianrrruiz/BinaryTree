@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <map>
 #include "binary_tree/BinaryTree.hpp"
 #include "elfo/Elfo.hpp"
@@ -8,6 +9,9 @@ int main()
     int opcion, dato;
     BinaryTree<int> arbol = BinaryTree<int>();
     map<string, BinaryTree<Elfo>> universoElfico;
+    //Para leer los elfos del archivo "elfos.txt"
+    vector<Elfo> listaElfos;
+    leerElfos("archivo.txt", listaElfos);
 
     do{
         cout << "ARBOL BINARIO AVL\n";
@@ -87,3 +91,55 @@ int main()
 
     return 0;
 }
+
+void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos) {
+    ifstream archivo(rutaArchivo);
+
+    if (!archivo) {
+        cout << "No se puede abrir el archivo" << endl;
+        return;
+    }
+
+    string linea;
+    string nombre;
+    string poder;
+    vector<string> habilidadesEspeciales;
+
+    while (getline(archivo, linea)) {
+        if (!linea.empty()) {
+            if (linea.find("Poder:") != string::npos) { //.find - Si no encuentra la subcadena, devuelve string::npos 
+                // Línea que contiene el poder del elfo
+                poder = linea.substr(linea.find(":") + 2); // +2 para omitir ": "
+            }
+            else if (linea.find("Habilidades Especiales:") != string::npos) {
+                 // Línea que contiene las habilidades especiales del elfo
+                habilidadesEspeciales.clear(); //Vaciar lista antes de llenarla
+                getline(archivo, linea); // Leer la línea de habilidades
+                // Separar las habilidades por comas y agregarlas al vector
+                unsigned int pos = 0;
+                while ((pos = linea.find(',')) != string::npos) {
+                    string habilidad = linea.substr(0, pos);
+                    habilidadesEspeciales.push_back(habilidad);
+                    linea.erase(0, pos + 1);
+                }
+                habilidadesEspeciales.push_back(linea); // Agregar la última habilidad
+            }
+            else {
+                // Línea que contiene el nombre del elfo
+                nombre = linea;
+            }
+        }
+        else {
+            // Fin de un elfo, crea el objeto Elfo y lo agregarlo a la lista
+            Elfo nuevoElfo;
+            nuevoElfo.setNombre(nombre);
+            nuevoElfo.setPoder(stoi(poder)); //Pasarlo de string a entero
+            nuevoElfo.setHabilidadesEspeciales(habilidadesEspeciales);
+            listaElfos.push_back(nuevoElfo);
+        }
+    }
+
+    archivo.close();
+    
+}
+
