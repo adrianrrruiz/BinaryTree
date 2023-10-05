@@ -2,7 +2,10 @@
 #define	ELFO_HPP
 
 #include <vector>
+#include <string>
 #include <iostream>
+
+
 using namespace std;
 
 class Elfo{
@@ -12,12 +15,14 @@ class Elfo{
         vector<string> habilidadesEspeciales;
     public:
         //Getters y Setters
-        string getNombre();
+        std::string getNombre() const;
         void setNombre(string nombre);
-        int getPoder();
+        int getPoder() const; 
         void setPoder(int poder);
-        vector<string> getHabilidadesEspeciales();
+        vector<string> getHabilidadesEspeciales() const;
         void setHabilidadesEspeciales(vector<string> habilidadesEspeciales);
+        Elfo();
+        Elfo(const std::string& nombre, int poder, const std::vector<std::string>& habilidadesEspeciales);
 
 };
 

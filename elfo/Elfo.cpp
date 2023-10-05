@@ -1,8 +1,13 @@
 #include "Elfo.hpp"
 
-string Elfo::getNombre()
+Elfo::Elfo() {}
+
+Elfo::Elfo(const std::string& nombre, int poder, const std::vector<std::string>& habilidadesEspeciales)
+    : nombre(nombre), poder(poder), habilidadesEspeciales(habilidadesEspeciales) {}
+
+string Elfo::getNombre() const 
 {
-    return this->nombre;
+    return nombre;
 }
 
 void Elfo::setNombre(string nombre)
@@ -10,9 +15,9 @@ void Elfo::setNombre(string nombre)
     this->nombre = nombre;
 }
 
-int Elfo::getPoder()
-{
-    return this->poder;
+int Elfo::getPoder() const 
+{ 
+    return poder;
 }
 
 void Elfo::setPoder(int poder)
@@ -20,7 +25,7 @@ void Elfo::setPoder(int poder)
     this->poder = poder;
 }
 
-vector<string> Elfo::getHabilidadesEspeciales()
+vector<string> Elfo::getHabilidadesEspeciales() const
 {
     return this->habilidadesEspeciales;
 }
