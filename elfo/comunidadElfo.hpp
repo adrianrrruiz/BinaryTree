@@ -37,4 +37,5 @@ private:
     vector<Elfo> elfosAsignados;
 };
 
+#include "comunidadElfo.cpp"
 #endif  // COMUNIDADELFO_HPP

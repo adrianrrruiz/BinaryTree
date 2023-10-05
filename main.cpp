@@ -6,7 +6,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include "elfo.hpp"
 #include "elfo/comunidadElfo.hpp"
 
 int main()
