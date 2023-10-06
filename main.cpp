@@ -100,10 +100,12 @@ int main()
             }
             case 7:{
                 mostrarElfosEncontrados(elfosEncontrados);
+                system("pause");
                 break;
             }
             case 8:{
                 mostrarPromedios(promedios);
+                system("pause");
                 break;
             }
             case 9:
@@ -184,13 +186,13 @@ vector<ComunidadElfos> crearComunidadesYAsignarElfos(const std::string& rutaArch
     elfolandia.setNombreComunidad("Elfolandia");
     elfolandia.setLider("Finarfin");
     elfolandia.setPoblacion(500);
-    elfolandia.sethabilidadesEspeciales("Manipulación de la flora, crecimiento acelerado de plantas, sanación a través de plantas");
+    elfolandia.sethabilidadesEspeciales("Manipulacion de la flora, crecimiento acelerado de plantas, sanación a traves de plantas");
 
     ComunidadElfos rivendel;
     rivendel.setNombreComunidad("Rivendel");
     rivendel.setLider("Elrond");
     rivendel.setPoblacion(300);
-    rivendel.sethabilidadesEspeciales("Sanación avanzada, detener el envejecimiento, protección mágica");
+    rivendel.sethabilidadesEspeciales("Sanacion avanzada, detener el envejecimiento, protección mágica");
 
     ComunidadElfos arvandor;
     arvandor.setNombreComunidad("Arvandor");
@@ -241,7 +243,7 @@ map<string, double> calcularPromedios(const vector<ComunidadElfos>& comunidades)
 }
 
 void mostrarPromedios(const map<string, double>& promediosComunidades) {
-    cout << "Promedios de Poder Mágico por Comunidad:" << endl;
+    cout << "Promedios de Poder Magico por Comunidad:" << endl;
     
     for (const auto& pareja : promediosComunidades) {
         cout << pareja.first << ": " << pareja.second << endl;
