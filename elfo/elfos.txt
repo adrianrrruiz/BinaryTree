@@ -14,33 +14,33 @@ Elara
 Poder: 38
 Habilidades Especiales: Volar, control de tormentas, magia del viento
 
-Thalía
+Thalia
 Poder: 12
-Habilidades Especiales: Lectura de mentes, proyección astral, comunicación telepática
+Habilidades Especiales: Lectura de mentes, proyeccion astral, comunicacion telepatica
 
 Arian
 Poder: 20
-Habilidades Especiales: Creación de ilusiones, invisibilidad, alteración de la percepción
+Habilidades Especiales: Creacion de ilusiones, invisibilidad, alteracion de la percepcion
 
 Lirael
 Poder: 45
-Habilidades Especiales: Invocación de espíritus, comunicación con los muertos, control de huesos
+Habilidades Especiales: Invocacion de espiritus, comunicacion con los muertos, control de huesos
 
 Galadriel
 Poder: 39
-Habilidades Especiales: Visión del futuro, percepción de eventos distantes, profecía
+Habilidades Especiales: Vision del futuro, percepcion de eventos distantes, profecia
 
 Finarfin
 Poder: 90
-Habilidades Especiales: Manipulación de la flora, crecimiento acelerado de plantas, sanación a través de plantas
+Habilidades Especiales: Manipulacion de la flora, crecimiento acelerado de plantas, sanacion a traves de plantas
 
 Eolande
 Poder: 23
-Habilidades Especiales: Creación de estructuras de hielo, invocación de ventiscas, resistencia al frío
+Habilidades Especiales: Creacion de estructuras de hielo, invocacion de ventiscas, resistencia al frio
 
 Valandil
 Poder: 12
-Habilidades Especiales: Creación de barreras de luz, cegar a los enemigos, manipulación de la luz
+Habilidades Especiales: Creacion de barreras de luz, cegar a los enemigos, manipulacion de la luz
 
 Thranduil
 Poder: 82
@@ -48,4 +48,5 @@ Habilidades Especiales: Cambio de forma en un animal, habilidades animales
 
 Elrond
 Poder: 54
-Habilidades Especiales: Sanación avanzada, detener el envejecimiento, protección mágica
+Habilidades Especiales: Sanacion avanzada, detener el envejecimiento, proteccion magica
+

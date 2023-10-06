@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "elfo/comunidadElfo.hpp"
 
+void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos);
 int main()
 {
     int opcion, dato;
@@ -126,9 +127,8 @@ void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos) {
     string nombre;
     string poder;
     vector<string> habilidadesEspeciales;
-
     while (getline(archivo, linea)) {
-        if (!linea.empty()) {
+        if (linea != "") {
             if (linea.find("Poder:") != string::npos) { //.find - Si no encuentra la subcadena, devuelve string::npos 
                 // Línea que contiene el poder del elfo
                 poder = linea.substr(linea.find(":") + 2); // +2 para omitir ": "
@@ -136,9 +136,9 @@ void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos) {
             else if (linea.find("Habilidades Especiales:") != string::npos) {
                  // Línea que contiene las habilidades especiales del elfo
                 habilidadesEspeciales.clear(); //Vaciar lista antes de llenarla
-                getline(archivo, linea); // Leer la línea de habilidades
                 // Separar las habilidades por comas y agregarlas al vector
-                unsigned int pos = 0;
+                unsigned int pos = linea.find(':');
+                linea.erase(0, pos + 1); // Eliminar habilidades especiales
                 while ((pos = linea.find(',')) != string::npos) {
                     string habilidad = linea.substr(0, pos);
                     habilidadesEspeciales.push_back(habilidad);
@@ -157,12 +157,12 @@ void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos) {
             nuevoElfo.setNombre(nombre);
             nuevoElfo.setPoder(stoi(poder)); //Pasarlo de string a entero
             nuevoElfo.setHabilidadesEspeciales(habilidadesEspeciales);
+            
             listaElfos.push_back(nuevoElfo);
         }
     }
 
     archivo.close();
-    
 }
 
 // Función para crear comunidades y asignar elfos
