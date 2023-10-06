@@ -9,13 +9,19 @@
 #include "elfo/comunidadElfo.hpp"
 
 void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos);
+vector<ComunidadElfos> crearComunidadesYAsignarElfos(const std::string& rutaArchivo);
+void imprimirComunidades(const vector<ComunidadElfos>& comunidades);
+map<string, double> calcularPromedios(const vector<ComunidadElfos>& comunidades);
+void mostrarPromedios(const map<string, double>& promediosComunidades);
+vector<pair<Elfo, string>> buscarElfosPorHabilidadesEnComunidades(const vector<ComunidadElfos>& comunidades, const vector<string>& habilidadesBuscadas);
+void mostrarElfosEncontrados(const vector<pair<Elfo, string>>& elfosEncontrados);
 int main()
 {
     int opcion, dato;
     BinaryTree<int> arbol = BinaryTree<int>();
     map<string, BinaryTree<Elfo>> universoElfico;
     //Para crear las comunidades y agregar los elfos
-    vector<ComunidadElfos> comunidades = crearComunidadesYAsignarElfos("archivo.txt");
+    vector<ComunidadElfos> comunidades = crearComunidadesYAsignarElfos("elfo/elfos.txt");
     //Crear mapa con los promedio por poderes de cada comunidad
     map<std::string, double> promedios = calcularPromedios(comunidades);
     //Buscar 2 habilidades espcificas en cada comunidad
@@ -24,7 +30,7 @@ int main()
     vector<pair<Elfo, std::string>> elfosEncontrados = buscarElfosPorHabilidadesEnComunidades(comunidades, habilidadesBuscadas);
     //Para leer los elfos del archivo "elfos.txt"
     vector<Elfo> listaElfos;
-    leerElfos("archivo.txt", listaElfos);
+    leerElfos("elfo/elfos.txt", listaElfos);
 
     do{
         cout << "ARBOL BINARIO AVL\n";
