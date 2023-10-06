@@ -40,8 +40,8 @@ int main()
         cout << "4. Mostrar arbol con posorden\n";
         cout << "5. Eliminar un dato\n";
         cout << "6. Altura del arbol\n";
-        cout << "7. Mostrar Elfo encontrados por habilidades especiales";
-        cout << "8. Mostrar promedio de poderes Elfos";
+        cout << "7. Mostrar Elfo encontrados por habilidades especiales\n";
+        cout << "8. Mostrar promedio de poderes Elfos\n";
         cout << "9. Salir\n";
         cout << "Ingrese una opcion: "; cin >> opcion;
         
