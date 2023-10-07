@@ -13,6 +13,7 @@ class Elfo{
         string nombre;
         int poder;
         vector<string> habilidadesEspeciales;
+        string comunidad;
     public:
         //Getters y Setters
         std::string getNombre() const;
@@ -21,6 +22,8 @@ class Elfo{
         void setPoder(int poder);
         vector<string> getHabilidadesEspeciales() const;
         void setHabilidadesEspeciales(vector<string> habilidadesEspeciales);
+        void setComunidad(const std::string& comunidad);
+        string getComunidad() const;
         Elfo();
         Elfo(const std::string& nombre, int poder, const std::vector<std::string>& habilidadesEspeciales);
 

@@ -34,3 +34,10 @@ void Elfo::setHabilidadesEspeciales(vector<string> habilidadesEspeciales)
 {
     this->habilidadesEspeciales = habilidadesEspeciales;
 }
+void Elfo::setComunidad(const std::string& comunidad) {
+    this->comunidad = comunidad;
+}
+
+string Elfo::getComunidad() const {
+    return comunidad;
+}

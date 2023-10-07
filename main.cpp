@@ -6,11 +6,14 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 #include "elfo/comunidadElfo.hpp"
 
 void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos);
-vector<ComunidadElfos> crearComunidadesYAsignarElfos(const std::string& rutaArchivo);
-void imprimirComunidades(const vector<ComunidadElfos>& comunidades);
+void imprimirElfos(const vector<Elfo>& listaElfos);
+std::map<std::string, std::vector<Elfo>> asignarComunidades(std::vector<Elfo>& elfos);
+void imprimirElfosPorComunidad(const std::map<std::string, std::vector<Elfo>>& comunidades);
 map<string, double> calcularPromedios(const vector<ComunidadElfos>& comunidades);
 void mostrarPromedios(const map<string, double>& promediosComunidades);
 vector<pair<Elfo, string>> buscarElfosPorHabilidadesEnComunidades(const vector<ComunidadElfos>& comunidades, const vector<string>& habilidadesBuscadas);
@@ -20,33 +23,40 @@ int main()
     int opcion, dato;
     BinaryTree<int> arbol = BinaryTree<int>();
     map<string, BinaryTree<Elfo>> universoElfico;
+    vector<Elfo> listaElfos;
+    //leerElfos("elfo/elfos.txt", listaElfos);
     //Para crear las comunidades y agregar los elfos
-    vector<ComunidadElfos> comunidades = crearComunidadesYAsignarElfos("elfo/elfos.txt");
+    map<string, vector<Elfo>> comunidades = asignarComunidades(listaElfos);
+
     //Crear mapa con los promedio por poderes de cada comunidad
-    map<std::string, double> promedios = calcularPromedios(comunidades);
+    //map<std::string, double> promedios = calcularPromedios(comunidades);
     //Buscar 2 habilidades espcificas en cada comunidad
     vector<string> habilidadesBuscadas = { "Magia elemental", "Invisibilidad" };
     //Para buscar los elfos con sus comunidades por las habilidades
-    vector<pair<Elfo, std::string>> elfosEncontrados = buscarElfosPorHabilidadesEnComunidades(comunidades, habilidadesBuscadas);
+    //vector<pair<Elfo, std::string>> elfosEncontrados = buscarElfosPorHabilidadesEnComunidades(comunidades, habilidadesBuscadas);
     //Para leer los elfos del archivo "elfos.txt"
-    vector<Elfo> listaElfos;
-    leerElfos("elfo/elfos.txt", listaElfos);
-
+    
     do{
         cout << "ARBOL BINARIO AVL\n";
+        cout << "0. Cargar archivo elfos\n";
         cout << "1. Ingresar un dato\n";
         cout << "2. Mostrar arbol con preorden\n";
         cout << "3. Mostrar arbol con inorden\n";
         cout << "4. Mostrar arbol con posorden\n";
         cout << "5. Eliminar un dato\n";
         cout << "6. Altura del arbol\n";
-        cout << "7. Mostrar Elfo encontrados por habilidades especiales\n";
-        cout << "8. Mostrar promedio de poderes Elfos\n";
+        cout << "7. Imprimir elfos con su comunidad\n";
         cout << "9. Salir\n";
         cout << "Ingrese una opcion: "; cin >> opcion;
         
         switch (opcion)
         {
+            case 0:
+                leerElfos("elfo/elfos.txt", listaElfos);
+                imprimirElfos(listaElfos);
+
+                system("pause");
+                break;
             case 1:
                 cout << "Ingrese el numero que quiera insertar al arbol: ";
                 cin >> dato;
@@ -99,12 +109,12 @@ int main()
                 break;
             }
             case 7:{
-                mostrarElfosEncontrados(elfosEncontrados);
-                system("pause");
-                break;
-            }
-            case 8:{
-                mostrarPromedios(promedios);
+                std::map<std::string, std::vector<Elfo>> comunidades = asignarComunidades(listaElfos);
+                cout << "Se asignaron correctamente" << endl;
+                for (const Elfo& elfo : listaElfos) {
+                std::cout << "Nombre: " << elfo.getNombre() << ", Comunidad: " << elfo.getComunidad() << std::endl;
+                }
+
                 system("pause");
                 break;
             }
@@ -118,7 +128,7 @@ int main()
                 break;
         }
         system("cls");
-    }while(opcion != 7);
+    }while(opcion != 9);
 
     return 0;
 }
@@ -173,62 +183,44 @@ void leerElfos(string rutaArchivo, vector<Elfo>& listaElfos) {
     archivo.close();
 }
 
-// Función para crear comunidades y asignar elfos
-vector<ComunidadElfos> crearComunidadesYAsignarElfos(const std::string& rutaArchivo) {
-    vector<ComunidadElfos> comunidades;
-    vector<Elfo> listaElfos;
-
-    // Llamar a la función para cargar elfos desde el archivo en listaElfos
-    leerElfos(rutaArchivo, listaElfos);
-
-    // Crear tres comunidades de elfos
-    ComunidadElfos elfolandia;
-    elfolandia.setNombreComunidad("Elfolandia");
-    elfolandia.setLider("Finarfin");
-    elfolandia.setPoblacion(500);
-    elfolandia.sethabilidadesEspeciales("Manipulacion de la flora, crecimiento acelerado de plantas, sanación a traves de plantas");
-
-    ComunidadElfos rivendel;
-    rivendel.setNombreComunidad("Rivendel");
-    rivendel.setLider("Elrond");
-    rivendel.setPoblacion(300);
-    rivendel.sethabilidadesEspeciales("Sanacion avanzada, detener el envejecimiento, protección mágica");
-
-    ComunidadElfos arvandor;
-    arvandor.setNombreComunidad("Arvandor");
-    arvandor.setLider("Thranduil");
-    arvandor.setPoblacion(700);
-    arvandor.sethabilidadesEspeciales("Cambio de forma en un animal, habilidades animales");
-
-    // Asignar elfos a cada comunidad (suponiendo que hay suficientes elfos en listaElfos)
-    if (listaElfos.size() >= 3) {
-        elfolandia.setElfosAsignados({ listaElfos[0], listaElfos[1] });
-        rivendel.setElfosAsignados({ listaElfos[2] });
+void imprimirElfos(const vector<Elfo>& listaElfos) {
+    for (const Elfo& elfo : listaElfos) {
+        cout << "Dentro del bucle for" << endl; // Agrega esta línea
+        cout << "Nombre: " << elfo.getNombre() << endl;
+        cout << "Poder: " << elfo.getPoder() << endl;
+        cout << "Habilidades Especiales:";
+        const vector<string>& habilidades = elfo.getHabilidadesEspeciales();
+        for (const string& habilidad : habilidades) {
+            cout << " " << habilidad;
+        }
+        cout << endl;
+        cout << "---------------------------" << endl;
     }
+}
 
-    // Agregar las comunidades a la lista de comunidades
-    comunidades.push_back(elfolandia);
-    comunidades.push_back(rivendel);
-    comunidades.push_back(arvandor);
+
+std::map<std::string, std::vector<Elfo>> asignarComunidades(std::vector<Elfo>& elfos) {
+    std::map<std::string, std::vector<Elfo>> comunidades;
+
+    srand(time(0)); // Inicializa la semilla para números aleatorios
+
+    for (Elfo& elfo : elfos) {
+        int random = rand() % 3; // Genera un número aleatorio entre 0 y 2
+        if (random == 0) {
+            elfo.setComunidad("Elfolandia");
+        } else if (random == 1) {
+            elfo.setComunidad("Rivendel");
+        } else {
+            elfo.setComunidad("Arvandor");
+        }
+
+        // Agregar el elfo a su comunidad correspondiente en el mapa
+        comunidades[elfo.getComunidad()].push_back(elfo);
+    }
 
     return comunidades;
 }
 
-void imprimirComunidades(const vector<ComunidadElfos>& comunidades) {
-    for (const ComunidadElfos& comunidad : comunidades) {
-        cout << "Comunidad: " << comunidad.getNombreComunidad() << endl;
-        cout << "Líder: " << comunidad.getLider() << std::endl;
-        cout << "Población: " << comunidad.getPoblacion() << endl;
-        cout << "Características Especiales: " << comunidad.gethabilidadesEspeciales() << endl;
-
-        cout << "Elfos Asignados:" << std::endl;
-        for (const Elfo& elfo : comunidad.getElfosAsignados()) {
-            cout << "  - " << elfo.getNombre() << std::endl;
-        }
-
-        std::cout << "---------------------------" << std::endl;
-    }
-}
 
 // Función para calcular el promedio de poder mágico de las comunidades
 map<string, double> calcularPromedios(const vector<ComunidadElfos>& comunidades) {
