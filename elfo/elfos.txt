@@ -1,52 +1,52 @@
 Juan
 Poder: 15
-Habilidades Especiales: Magia elemental, teletransportacion, vision aguda
+Habilidades Especiales:Magia elemental,teletransportacion,vision aguda
 
 Karen
 Poder: 19
-Habilidades Especiales: Camuflaje natural, comunicacion con la naturaleza
+Habilidades Especiales:Camuflaje natural,comunicacion con la naturaleza
 
 Edgar
 Poder: 68
-Habilidades Especiales: Magia musical
+Habilidades Especiales:Magia musical
 
 Elara
 Poder: 38
-Habilidades Especiales: Volar, control de tormentas, magia del viento
+Habilidades Especiales:Volar,control de tormentas,magia del viento
 
 Thalia
 Poder: 12
-Habilidades Especiales: Lectura de mentes, proyeccion astral, comunicacion telepatica
+Habilidades Especiales:Lectura de mentes,proyeccion astral,comunicacion telepatica
 
 Arian
 Poder: 20
-Habilidades Especiales: Creacion de ilusiones, invisibilidad, alteracion de la percepcion
+Habilidades Especiales:Creacion de ilusiones,invisibilidad,alteracion de la percepcion
 
 Lirael
 Poder: 45
-Habilidades Especiales: Invocacion de espiritus, comunicacion con los muertos, control de huesos
+Habilidades Especiales:Invocacion de espiritus,comunicacion con los muertos,control de huesos
 
 Galadriel
 Poder: 39
-Habilidades Especiales: Vision del futuro, percepcion de eventos distantes, profecia
+Habilidades Especiales:Vision del futuro,percepcion de eventos distantes,profecia
 
 Finarfin
 Poder: 90
-Habilidades Especiales: Manipulacion de la flora, crecimiento acelerado de plantas, sanacion a traves de plantas
+Habilidades Especiales:Manipulacion de la flora,crecimiento acelerado de plantas,sanacion a traves de plantas
 
 Eolande
 Poder: 23
-Habilidades Especiales: Creacion de estructuras de hielo, invocacion de ventiscas, resistencia al frio
+Habilidades Especiales:Creacion de estructuras de hielo,invocacion de ventiscas,resistencia al frio
 
 Valandil
 Poder: 12
-Habilidades Especiales: Creacion de barreras de luz, cegar a los enemigos, manipulacion de la luz
+Habilidades Especiales:Creacion de barreras de luz,cegar a los enemigos,manipulacion de la luz
 
 Thranduil
 Poder: 82
-Habilidades Especiales: Cambio de forma en un animal, habilidades animales
+Habilidades Especiales:Cambio de forma en un animal,habilidades animales
 
 Elrond
 Poder: 54
-Habilidades Especiales: Sanacion avanzada, detener el envejecimiento, proteccion magica
+Habilidades Especiales:Sanacion avanzada,detener el envejecimiento,proteccion magica
 

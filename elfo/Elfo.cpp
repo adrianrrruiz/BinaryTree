@@ -1,4 +1,5 @@
 #include "Elfo.hpp"
+#include <ostream>
 
 Elfo::Elfo() {}
 
@@ -33,4 +34,35 @@ vector<string> Elfo::getHabilidadesEspeciales() const
 void Elfo::setHabilidadesEspeciales(vector<string> habilidadesEspeciales)
 {
     this->habilidadesEspeciales = habilidadesEspeciales;
+}
+
+bool Elfo::operator<(Elfo const &otherElfo) const
+{
+    return poder < otherElfo.poder;
+}
+
+bool Elfo::operator>(Elfo const &otherElfo) const
+{
+    return poder > otherElfo.poder;
+}
+
+bool Elfo::operator==(Elfo const &otherElfo) const
+{
+
+    return poder == otherElfo.poder && nombre == otherElfo.nombre && habilidadesEspeciales == otherElfo.habilidadesEspeciales;
+}
+
+bool Elfo::operator!=(Elfo const &otherElfo) const
+{
+    return poder != otherElfo.poder || nombre != otherElfo.nombre || habilidadesEspeciales != otherElfo.habilidadesEspeciales;
+}
+
+ostream &operator<<(ostream &os, Elfo const &elfo)
+{
+    os << "Nombre: " << elfo.getNombre() << " - Poder: " << elfo.getPoder() << " - Habilidades: ";
+    for(int i = 0; i < elfo.getHabilidadesEspeciales().size(); i++){
+            os << elfo.getHabilidadesEspeciales()[i] << ", ";
+    }
+    
+    return os;
 }

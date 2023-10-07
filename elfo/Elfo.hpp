@@ -23,7 +23,11 @@ class Elfo{
         void setHabilidadesEspeciales(vector<string> habilidadesEspeciales);
         Elfo();
         Elfo(const std::string& nombre, int poder, const std::vector<std::string>& habilidadesEspeciales);
-
+        bool operator<(Elfo const &otherElfo) const;
+        bool operator>(Elfo const &otherElfo) const;
+        bool operator==(Elfo const &otherElfo) const;
+        bool operator!=(Elfo const &otherElfo) const;
+        friend ostream &operator<<(ostream &os, Elfo const &elfo);
 };
 
 #include "Elfo.cpp"
