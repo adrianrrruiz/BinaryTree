@@ -21,6 +21,7 @@ list<Elfo> operacion2(list<string> &habilidades, map<string, BinaryTree<Elfo>> &
 void buscarEnArbolHabilidad(list<Elfo> elfos, list<string> &habilidades, list<Elfo> &elfosConHabilidad);
 bool encontroHabilidad(list<string> &habilidades, Elfo elfo);
 void mostrarElfosEncontrados(list<Elfo> &elfos);
+void printTree(int start, int limit, string tipoRecorrido, string nombreComunidad, map<string, BinaryTree<Elfo>> &comunidadElfica);
 int main()
 {
     int opcion, dato;
@@ -124,7 +125,26 @@ int main()
                 system("pause");
                 break;
             }
-            case 6:
+            case 6:{
+                int start, limit;
+                string tipoRecorrido;
+                cout << "Ingrese el nombre de la comunidad que quiere ver: (Elfolandia - Rivendel - Arvandor)"<< endl;
+                cin >> nombreComunidad;
+                cout << "Ingrese desde donde quiere ver los elfos(start): ";
+                cin >> start;
+                cout << "Ingrese hasta donde quiere ver los elfos(limit): ";
+                cin >> limit;
+                if (start > limit) {
+                    cout << "Start no puede ser mayor a limit\n";
+                    break;
+                }
+                cout << "Que tipo de recorrido desea hacer: (preorden, inorden, postorden): ";
+                cin >> tipoRecorrido;
+                //El indice para el paginado de los elfos, inicia en 0
+                printTree(start, limit, tipoRecorrido, nombreComunidad, universoElfico);
+                break;
+            }
+            case 7:
                 cout << "Muchas gracias por usar el sistema :)\n";
                 system("pause");
                 break;
@@ -134,7 +154,7 @@ int main()
                 break;
         }
         system("cls");
-    }while(opcion != 6);
+    }while(opcion != 7);
 
     return 0;
 }
@@ -260,6 +280,39 @@ void mostrarElfosEncontrados(list<Elfo> &elfos) {
     cout << "ELFOS ENCONTRADOS\n";
     for(Elfo elfo: elfos){
         cout << elfo << endl;
+    }
+}
+
+void printTree(int start, int limit, string tipoRecorrido, string nombreComunidad, map<string, BinaryTree<Elfo>> &comunidadElfica){
+    list<Elfo> elfos;
+    if(nombreComunidad == "Arvandor" || nombreComunidad == "Elfolandia" || nombreComunidad == "Rivendel"){
+        if(tipoRecorrido == "preorden"){
+        elfos = comunidadElfica[nombreComunidad].preOrder();
+        }else if(tipoRecorrido == "inorden"){
+            elfos = comunidadElfica[nombreComunidad].inOrder();
+        }else if(tipoRecorrido == "postorden"){
+            elfos = comunidadElfica[nombreComunidad].postOrder();
+        }else {
+            cout << "Recorrido invalido\n";
+            return;
+        }
+        int indice = 0;
+        system("cls");
+        cout << "ELFOS CON " << tipoRecorrido << endl;
+        for(Elfo elfo: elfos){
+            if(indice > limit || indice == elfos.size()){
+                return;
+            }
+            if(indice >= start){
+                cout << "ELFO #" << indice <<endl;
+                cout << elfo << endl;
+                system("pause");
+            }
+            indice++;
+        }
+    }else{
+        cout << "Esa comunidad no existe\n";
+        return ;
     }
 }
 
