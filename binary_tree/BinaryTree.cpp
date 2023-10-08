@@ -362,3 +362,63 @@ list<T> BinaryTree<T>::postOrder() const
     return list;
 }
 
+template <typename T> list<T> BinaryTree<T>::byLevels() const
+
+{
+
+    list<T> list;
+
+ 
+
+    byLevelsAux(root,list);
+
+ 
+
+    return list;
+
+}
+
+ 
+
+template <typename T>
+
+void BinaryTree<T>::byLevelsAux(BinaryNode<T>* root, std::list<T>& list) const {
+
+    if (root == nullptr)
+
+        return;
+
+ 
+
+    std::queue<BinaryNode<T>*> cola;
+
+    cola.push(root);
+
+ 
+
+    while (!cola.empty()) {
+
+        BinaryNode<T>* nodoActual = cola.front();
+
+        cola.pop();
+
+ 
+
+        list.push_back(nodoActual->data);
+
+ 
+
+        if (nodoActual->leftChild)
+
+            cola.push(nodoActual->leftChild);
+
+ 
+
+        if (nodoActual->rightChild)
+
+            cola.push(nodoActual->rightChild);
+
+    }
+
+}
+

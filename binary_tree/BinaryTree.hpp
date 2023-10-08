@@ -3,6 +3,7 @@
 
 #include <list>
 #include <deque>
+#include <queue>
 #include <unordered_map>
 
 #include "binary_node/BinaryNode.hpp"
@@ -27,6 +28,7 @@ private:
     BinaryNode<T>* highestNodeLeft(BinaryNode<T> *&node) const;
     BinaryNode<T>* highestNodeLeftAux(BinaryNode<T> *&node) const;
     bool deleteNodeAux(T const &data, BinaryNode<T> *&node);
+    void byLevelsAux(BinaryNode<T> *node, list<T> &list) const;
 
 
 public:
@@ -59,6 +61,7 @@ public:
     list<T> preOrder() const;
     list<T> inOrder() const;
     list<T> postOrder() const;
+    list<T> byLevels() const;
 };
 
 #include "BinaryTree.cpp"

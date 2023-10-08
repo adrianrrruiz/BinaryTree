@@ -62,7 +62,8 @@ int main()
         cout << "4. Buscar elfos con habilidades (operacion 2)\n";
         cout << "5. Mostrar promedio de poderes elfos por comunidad (operacion 1)\n";
         cout << "6. Imprimir arbol (printTree)\n";
-        cout << "7. Salir\n";
+        cout << "7. Mostrar arbol por niveles\n";
+        cout << "8. Salir\n";
         cout << "Ingrese una opcion: "; cin >> opcion;
         
         switch (opcion)
@@ -138,13 +139,25 @@ int main()
                     cout << "Start no puede ser mayor a limit\n";
                     break;
                 }
-                cout << "Que tipo de recorrido desea hacer: (preorden, inorden, postorden): ";
+                cout << "Que tipo de recorrido desea hacer: (preorden, inorden, postorden, porNiveles): ";
                 cin >> tipoRecorrido;
                 //El indice para el paginado de los elfos, inicia en 0
                 printTree(start, limit, tipoRecorrido, nombreComunidad, universoElfico);
                 break;
             }
-            case 7:
+            case 7:{
+                cout << "POR NIVELES\n";
+                cout << "Ingrese el nombre de la comunidad que quiere ver: (Elfolandia - Rivendel - Arvandor)"<< endl;
+                cin >> nombreComunidad;
+                list<Elfo> myList = universoElfico[nombreComunidad].byLevels();
+                for(Elfo elfo : myList){
+                    cout <<"- "<<elfo.getNombre()<<", ";
+                }
+                cout << endl;
+                system("pause");
+                break;
+            }
+            case 8:
                 cout << "Muchas gracias por usar el sistema :)\n";
                 system("pause");
                 break;
@@ -154,7 +167,7 @@ int main()
                 break;
         }
         system("cls");
-    }while(opcion != 7);
+    }while(opcion != 8);
 
     return 0;
 }
@@ -292,6 +305,8 @@ void printTree(int start, int limit, string tipoRecorrido, string nombreComunida
             elfos = comunidadElfica[nombreComunidad].inOrder();
         }else if(tipoRecorrido == "postorden"){
             elfos = comunidadElfica[nombreComunidad].postOrder();
+        }else if(tipoRecorrido == "porNiveles"){
+            elfos = comunidadElfica[nombreComunidad].byLevels();
         }else {
             cout << "Recorrido invalido\n";
             return;
